@@ -87,9 +87,9 @@ export class HomePage {
   }
   
   private runKnn(){
-	  var knn = new knn.KNN(this.treino_x, this.treino_y);
-	  //aqui a baixo
-	  this.ans = knn.predict(this.teste_x);
+	  
+	//var knn = new knn.KNN(this.treino_x, this.treino_y);	 
+	//this.ans = knn.predict(this.teste_x);
 
   }
  
