@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      CSV Data
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="downloadCSV()">
+         <ion-icon name="download"></ion-icon>
+       </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding>
+	<!--
+    <table border="1" class="data-table">
+      <tr>
+        <td *ngFor="let header of headerRow" text-center><b>{{ header }}</b></td>
+      </tr>
+      <tr *ngFor="let row of csvData; let i = index">
+        <td *ngFor="let data of row; let j = index; trackBy: trackByFn">
+          <ion-input type="text" [(ngModel)]="csvData[i][j]"></ion-input>
+        </td>
+      </tr>
+    </table>
+	-->
+	
+
+    <table border="1" class="data-table">
+
+      <tr>
+        <td  *ngFor="let row of ans; let i = index; trackBy: trackByFn">
+          <ion-input type="text" [(ngModel)]="ans[i][j]"></ion-input>
+        </td>
+      </tr>
+    </table>
+
+	
+	
+</ion-content>
+
