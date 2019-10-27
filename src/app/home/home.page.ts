@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Http } from '@angular/http';
 import * as papa from 'papaparse';
-import * as knn from 'ml-knn';
+import KNN from 'ml-knn';
 
 @Component({
   selector: 'app-home',
@@ -19,8 +19,8 @@ export class HomePage {
   ans : any[] = [];
  
   constructor(public navCtrl: NavController, private http: Http) {
-    this.readCsvData();
-	this.runKnn();
+     this.readCsvData();
+	  //this.runKnn();
   }
  
   private readCsvData() {
@@ -60,7 +60,7 @@ export class HomePage {
     let treino_y = res['_body'] || '';
     let parsedData = papa.parse(treino_y).data;
  
-    this.headerRow = parsedData[0];
+    //this.headerRow = parsedData[0];
  
     parsedData.splice(0, 1);
     this.treino_y = parsedData;
@@ -70,7 +70,7 @@ export class HomePage {
     let teste_x = res['_body'] || '';
     let parsedData = papa.parse(teste_x).data;
  
-    this.headerRow = parsedData[0];
+    //this.headerRow = parsedData[0];
  
     parsedData.splice(0, 1);
     this.teste_x = parsedData;
@@ -80,7 +80,7 @@ export class HomePage {
     let teste_y = res['_body'] || '';
     let parsedData = papa.parse(teste_y).data;
  
-    this.headerRow = parsedData[0];
+    //this.headerRow = parsedData[0];
  
     parsedData.splice(0, 1);
     this.teste_y = parsedData;
@@ -88,9 +88,16 @@ export class HomePage {
   
   private runKnn(){
 	  
-	//var knn = new knn.KNN(this.treino_x, this.treino_y);	 
-	//this.ans = knn.predict(this.teste_x);
+	/*console.log(this.headerRow); 
+   console.log(this.treino_x); 
+   console.log(this.treino_y); */
+   
+   var knnTreinado = new KNN(this.treino_x,this.treino_y);	
+   console.log(knnTreinado);
+   console.log(knnTreinado.toJSON());
+   //var knnDoModelo = KNN.load(knnTreinado.toJSON());
 
+   //this.ans = knnTreinado.predict(this.teste_x);
   }
  
  /*
